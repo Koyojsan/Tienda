@@ -1,34 +1,35 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:attr="lang=${lang}" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Page Title</title>
-    <meta charset="UTF-8"/>
-</head>
+<html th:attr="lang=${lang}" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{template.html :: head}"></head>
 <body>
-<header th:insert="~{template.html :: header}"></header>
-<div class="con-cajas">
-    <div class="cajas">
-        <div class="imagen">
+<div th:insert="~{template.html :: nav}"></div>
+<div th:insert="~{template.html :: featured-product}"></div>
+<section class="container py-5">
+    <div class="row text-center pt-3">
+        <div class="col-lg-6 m-auto">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Imagen</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="product : ${products}">
+                    <td><span th:text="${product.id}"></span></td>
+                    <td><span th:text="${product.descripcion}"> </span></td>
+                    <td><span th:text="${product.precio}"> </span></td>
+                    <td><img alt="..." class="card-img-top" th:src="${product.ruta_imagen}"></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-        <h2 th:text="#{index.tittle}"></h2>
-        <p th:text="#{index.message}"></p>
     </div>
-    <div class="cajas">
-        <div class="">
-            imagen
-        </div>
-        <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</h2>
-        <p>Lorem ipsum dolor sit amet.</p>
-    </div>
-    <div class="cajas">
-        <div class="imagen">     
-        </div>
-        <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniamsed do eiusmod tempor incididunt ut labore et dolore magna
-            aliqua. Ut enim ad minim veniam</p>
-    </div>
-</div>
+</section>
+
+<div th:insert="~{template.html :: footer}"></div>
 <div th:insert="~{template.html :: scripts}"></div>
 </body>
 </html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html th:attr="lang=${lang}" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{template.html :: head}"></head>
+<body>
+<div th:insert="~{template.html :: nav}"></div>
+<section class="container py-5">
+    <div class="row text-center pt-3">
+        <div class="col-lg-6 m-auto">
+            <button type="button" class="btn btn-primary open-modal"
+                    data-toggle="modal" data-target="#productModal">
+                Create new product
+            </button>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Acction</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="product : ${products}">
+                    <td><span th:text="${product.id}"></span></td>
+                    <td><span th:text="${product.descripcion}"> </span></td>
+                    <td><span th:text="${product.precio}"> </span></td>
+                    <td><img alt="..." class="card-img-top" th:src="${product.ruta_imagen}"></td>
+                    
+                    <td>
+                        <!-- Thymlaf agarra todo esto como un boton, el product.id es la id que recoge de la base de datos -->
+                        <button type="button" th:attr="idProduct=${product.id}" class="btn btn-primary open-modal"
+                                data-toggle="modal" data-target="#productModal">
+                            edit
+                        </button>
+                        <!-- Este boton es un JSON -->
+                        <button type="button" th:attr="idProduct=${product.id}" class="btn btn-danger open-modal btnDeleteProduct">
+                            delete
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+<!-- this is the modal-->
+<!-- modal == pop up, como un anuncio flotante que muestra info -->
+    <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Producto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formProduct" action="#" method="post" th:action="@{/product/save}" th:object="${product}"> <!-- Redirecciona al ultimo save -->
+                        <div class="form-group d-none" >
+                            <label for="id">Id</label>
+                            <input th:field="*{id}" type="number" class="form-control" id="id"
+                                   placeholder="id">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_categoria">Categoria</label>
+                            <input th:field="*{id_categoria}" type="number" class="form-control" id="id_categoria"
+                                   placeholder="Categoria">
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion">Descripcion</label>
+                            <input th:field="*{descripcion}" type="text" class="form-control" id="descripcion"
+                                   placeholder="descripcion">
+                        </div>
+                        <div class="form-group">
+                            <label for="detalle">Detalle</label>
+                            <input th:field="*{detalle}" type="text" class="form-control" id="detalle"
+                                   placeholder="Detalle">
+                        </div>
+                        <div class="form-group">
+                            <label for="precio">Precio</label>
+                            <input th:field="*{precio}" type="number" class="form-control" id="precio"
+                                   placeholder="Precio">
+                        </div>
+                        <div class="form-group">
+                            <label for="existencias">Excistencias</label>
+                            <input th:field="*{existencias}" type="number" class="form-control" id="existencias"
+                                   placeholder="Excistencias">
+                        </div>
+                        <div class="form-group">
+                            <label for="ruta_imagen">URL Imagen</label>
+                            <input th:field="*{ruta_imagen}" type="text" class="form-control" id="ruta_imagen"
+                                   placeholder="URL Imagen">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="saveProduct">Save changes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div th:insert="~{template.html :: footer}"></div>
+<div th:insert="~{template.html :: scripts}"></div>
+<!-- This section is really important cause we are asssigning the list of products loaded in the model, into the js -->
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    products = /*[[${products}]]*/ 'default';
+    /*]]>*/
+</script>
+<script src="../js/views/product.js"></script>
+</body>
+</html>

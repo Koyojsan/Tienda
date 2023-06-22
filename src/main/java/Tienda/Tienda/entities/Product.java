@@ -7,7 +7,7 @@ public class Product {
  
     @Id
     @Column(name = "id_producto")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO) //Genera un numero
     private Integer id;
 
  

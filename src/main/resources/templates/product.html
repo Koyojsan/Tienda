@@ -1,8 +1,11 @@
 <!DOCTYPE html>
+
 <html th:attr="lang=${lang}" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head th:insert="~{template.html :: head}"></head>
+
 <body>
 <div th:insert="~{template.html :: nav}"></div>
+
 <section class="container py-5">
     <div class="row text-center pt-3">
         <div class="col-lg-6 m-auto">
@@ -10,6 +13,7 @@
                     data-toggle="modal" data-target="#productModal">
                 Create new product
             </button>
+
             <table class="table">
                 <thead>
                 <tr>
@@ -20,12 +24,16 @@
                     <th scope="col">Acction</th>
                 </tr>
                 </thead>
+
                 <tbody>
-                <tr th:each="product : ${products}">
-                    <td><span th:text="${product.id}"></span></td>
+                    <tr th:each="product : ${products}">
+                    <!-- el product se crea ahí mismo, puedo ponerle incluso juan -->
+                        <td><span th:text="${product.id}"></span></td> 
+                        <!-- estos product, podrian ser un juan.id -->
                     <td><span th:text="${product.descripcion}"> </span></td>
                     <td><span th:text="${product.precio}"> </span></td>
-                    <td><img alt="..." class="card-img-top" th:src="${product.ruta_imagen}"></td>
+                    <td><img alt="..." class="card-img-top" th:src="${product.ruta_imagen}">
+                    </td>
                     
                     <td>
                         <!-- Thymlaf agarra todo esto como un boton, el product.id es la id que recoge de la base de datos -->
@@ -43,10 +51,10 @@
             </table>
         </div>
     </div>
+
 <!-- this is the modal-->
 <!-- modal == pop up, como un anuncio flotante que muestra info -->
-    <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
+    <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -56,7 +64,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="formProduct" action="#" method="post" th:action="@{/product/save}" th:object="${product}"> <!-- Redirecciona al ultimo save -->
+                    <form id="formProduct" action="#" method="post" th:action="@{/product/save}" th:object="${product}">
+                        <!-- Redirecciona al ultimo save -->
                         <div class="form-group d-none" >
                             <label for="id">Id</label>
                             <input th:field="*{id}" type="number" class="form-control" id="id"

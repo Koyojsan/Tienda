@@ -2,11 +2,11 @@
 
 //Esto no es JS puro
 //DOM = igual a todo el documento web, apea el ID de Productos y lo obtiene de bases de Datos
+
 $(document).on("click", ".open-modal", function () {
     const currentProductId = Number($(this).attr('idproduct'));
-
     if (currentProductId) {
-        const currentProduct = products.find(x => x.id === currentProductId); //Encuentra un id para el producto, se podria decir que es similar a un autoincremento
+        const currentProduct = products.find(x => x.id === currentProductId);
         $("#id").val(currentProduct.id);
         $("#id_categoria").val(currentProduct.id_categoria);
         $("#descripcion").val(currentProduct.descripcion);
@@ -22,6 +22,7 @@ $(document).on("click", "#saveProduct", function () {
 })
 
 //Delete
+
 $(document).on("click", ".btnDeleteProduct", function () {
     const currentProductId = Number($(this).attr('idproduct'));
     const currentProduct = products.find(x => x.id === currentProductId);

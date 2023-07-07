@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "producto")
 public class Product {
- 
+// Traducir la base de datos a Getters y Setters para el proyecto
     @Id
     @Column(name = "id_producto")
     @GeneratedValue(strategy = GenerationType.AUTO) //Genera un numero

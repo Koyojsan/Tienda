@@ -24,7 +24,7 @@ public class Product {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Integer id_categoria) {
         this.id = id;
     }
 

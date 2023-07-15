@@ -21,6 +21,7 @@ public class ProductController {
         model.addAttribute("product", new Product());
         model.addAttribute("products", this.productService.getAllProducts());
         return "product";
+        //El mapeo devuelve un producto de la Entidad
     }
     //Guardar cambio
     @PostMapping("product/save")

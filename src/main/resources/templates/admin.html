@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html th:attr="lang=${lang}" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{template.html :: head}"></head>
+<link th:href="@{/css/views/admin.css}" rel="stylesheet">
+<body>
+<div th:insert="~{template.html :: nav}"></div>
+<section class="container mw-100">
+    <div class="container button-container">
+        <div class="row">
+            <div class="col-sm d-flex justify-content-center text-center" >
+                <a th:href="@{/product}">
+                    <div class="backgrounds justify-content-center">
+                        <h2>Products</h2>
+                        <img th:src="@{/icons/icons8-product-management-96.png}"
+                             alt="delivery-settings"/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm d-flex justify-content-center text-center">
+                <a th:href="@{/category}">
+                    <div class="backgrounds justify-content-center">
+                        <h2>Categories</h2>
+                        <img th:src="@{/icons/icons8-grocery-shelf-96.png}"
+                             alt="delivery-settings"/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm d-flex justify-content-center text-center">
+                <a th:href="@{/product}">
+                    <div class="backgrounds justify-content-center">
+                        <h2>Invoices</h2>
+                        <img th:src="@{/icons/icons8-receipt-96.png}"
+                             alt="delivery-settings"/>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<div th:insert="~{template.html :: scripts}"></div>
+<div th:insert="~{template.html :: footer}"></div>
+</body>
+</html>

@@ -4,6 +4,7 @@
 <body>
 <div th:insert="~{template.html :: nav}"></div>
 <div th:insert="~{template.html :: featured-product}"></div>
+
 <section class="container py-5">
     <div class="row text-center pt-3">
         <div class="col-lg-6 m-auto">
@@ -14,6 +15,7 @@
                     <th scope="col">Descripcion</th>
                     <th scope="col">Precio</th>
                     <th scope="col">Imagen</th>
+                    <th scope="col">Acction</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -21,15 +23,19 @@
                     <td><span th:text="${product.id}"></span></td>
                     <td><span th:text="${product.descripcion}"> </span></td>
                     <td><span th:text="${product.precio}"> </span></td>
-                    <td><img alt="..." class="card-img-top" th:src="${product.ruta_imagen}"></td>
+                    <td><img alt="..." class="card-img-top" th:src="${product.ruta_imagen}">
+                    </td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
+
 </section>
+
 
 <div th:insert="~{template.html :: footer}"></div>
 <div th:insert="~{template.html :: scripts}"></div>
+
 </body>
 </html>

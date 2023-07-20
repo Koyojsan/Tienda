@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html th:attr="lang=${lang}" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html th:attr="lang=${lang}" 
+      xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      ​​xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+      <!-- Añadir en los htmls el xmlns de la pagina que nos brinda la profe -->
 <head th:fragment="head">
     <title>Zay Shop eCommerce HTML CSS Template</title>
     <meta charset="utf-8">
@@ -49,7 +53,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
+                <!-- En template añadir el tag sec:authorize, 
+                     funciona para roles, es para dar acceso a roles especificos, 
+                     si uno es Admin y entra a Admin puede, 
+                     si otro rol lo hace no accede -->
                         <a class="nav-link" th:href="@{/admin}">Admin</a>
                     </li>
                 </ul>

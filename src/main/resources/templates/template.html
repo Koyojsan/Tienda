@@ -5,7 +5,7 @@
       ​​xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
       <!-- Añadir en los htmls el xmlns de la pagina que nos brinda la profe -->
 <head th:fragment="head">
-    <title>Zay Shop eCommerce HTML CSS Template</title>
+    <title>Zay Shop eCommerce Juan D</title>
     <meta charset="utf-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,8 +27,8 @@
 <nav class="navbar navbar-expand-lg navbar-light shadow" th:fragment="header">
     <div class="container d-flex justify-content-between align-items-center">
 
-        <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
-            Tienda de Juan D
+        <a class="navbar-brand text-success logo h1 align-self-center" href="/">
+            [[#{template.titulo}]]
         </a>
 
         <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
@@ -42,7 +42,7 @@
             <div class="flex-fill">
                 <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="/">[[#{template.home}]]</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
@@ -216,8 +216,8 @@
     <div class="container py-5">
         <div class="row text-center py-3">
             <div class="col-lg-6 m-auto">
-                <h1 class="h1" th:text="#{index.Featured.Product}"></h1>
-                <p th:text="#{index.Featured.Text}">
+                <h1 class="h1">[[#{index.Featured.Product}]]</h1>
+                <p>[[#{index.Featured.Text}]]
                 </p>
             </div>
         </div>
@@ -236,14 +236,13 @@
                                 <i class="text-muted fa fa-star"></i>
                                 <i class="text-muted fa fa-star"></i>
                             </li>
-                            <li class="text-muted text-right">$240.00</li>
+                            <li class="text-muted text-right">$50.00</li>
                         </ul>
-                        <a class="h2 text-decoration-none text-dark" href="shop-single.html">Gym Weight</a>
+                        <a class="h2 text-decoration-none text-dark" href="shop-single.html">[[#{template.product.titulo.1}]]</a>
                         <p class="card-text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia
-                            deserunt.
+                            [[#{template.product.desc.1}]]
                         </p>
-                        <p class="text-muted">Reviews (24)</p>
+                        <p class="text-muted">[[#{template.product.vistas.1}]]</p>
                     </div>
                 </div>
             </div>
@@ -261,14 +260,13 @@
                                 <i class="text-muted fa fa-star"></i>
                                 <i class="text-muted fa fa-star"></i>
                             </li>
-                            <li class="text-muted text-right">$480.00</li>
+                            <li class="text-muted text-right">$40.00</li>
                         </ul>
-                        <a class="h2 text-decoration-none text-dark" href="shop-single.html">Cloud Nike Shoes</a>
+                        <a class="h2 text-decoration-none text-dark" href="shop-single.html">[[#{template.product.titulo.2}]]</a>
                         <p class="card-text">
-                            Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo
-                            ullamcorper.
+                            [[#{template.product.desc.2}]]
                         </p>
-                        <p class="text-muted">Reviews (48)</p>
+                        <p class="text-muted">[[#{template.product.vistas.2}]]</p>
                     </div>
                 </div>
             </div>
@@ -286,14 +284,13 @@
                                 <i class="text-warning fa fa-star"></i>
                                 <i class="text-warning fa fa-star"></i>
                             </li>
-                            <li class="text-muted text-right">$360.00</li>
+                            <li class="text-muted text-right">$60.00</li>
                         </ul>
-                        <a class="h2 text-decoration-none text-dark" href="shop-single.html">Summer Addides Shoes</a>
+                        <a class="h2 text-decoration-none text-dark" href="shop-single.html">[[#{template.product.titulo.3}]]</a>
                         <p class="card-text">
-                            Curabitur ac mi sit amet diam luctus porta. Phasellus pulvinar sagittis diam, et scelerisque
-                            ipsum lobortis nec.
+                            [[#{template.product.desc.3}]]
                         </p>
-                        <p class="text-muted">Reviews (74)</p>
+                        <p class="text-muted">[[#{template.product.vistas.3}]]</p>
                     </div>
                 </div>
             </div>
@@ -308,7 +305,7 @@
         <div class="row">
 
             <div class="col-md-4 pt-5">
-                <h2 class="h2 text-success border-bottom pb-3 border-light logo">JD Shop</h2>
+                <h2 class="h2 text-success border-bottom pb-3 border-light logo">[[#{template.titulo}]]</h2>
                 <ul class="list-unstyled text-light footer-link-list">
                     <li>
                         <i class="fas fa-map-marker-alt fa-fw"></i>
@@ -326,26 +323,26 @@
             </div>
 
             <div class="col-md-4 pt-5">
-                <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
+                <h2 class="h2 text-light border-bottom pb-3 border-light">[[#{template.productos}]]</h2>
                 <ul class="list-unstyled text-light footer-link-list">
-                    <li><a class="text-decoration-none" href="#">Luxury</a></li>
-                    <li><a class="text-decoration-none" href="#">Sport Wear</a></li>
-                    <li><a class="text-decoration-none" href="#">Men's Shoes</a></li>
-                    <li><a class="text-decoration-none" href="#">Women's Shoes</a></li>
-                    <li><a class="text-decoration-none" href="#">Popular Dress</a></li>
-                    <li><a class="text-decoration-none" href="#">Gym Accessories</a></li>
-                    <li><a class="text-decoration-none" href="#">Sport Shoes</a></li>
+                    <li><a class="text-decoration-none" href="#">[[#{template.product.titulo.1}]]</a></li>
+                    <li><a class="text-decoration-none" href="#">[[#{template.product.titulo.2}]]</a></li>
+                    <li><a class="text-decoration-none" href="#">[[#{template.product.titulo.3}]]</a></li>
+                    <li><a class="text-decoration-none" href="#">[[#{template.producto.extra.4}]]</a></li>
+                    <li><a class="text-decoration-none" href="#">[[#{template.producto.extra.5}]]</a></li>
+                    <li><a class="text-decoration-none" href="#">[[#{template.producto.extra.6}]]</a></li>
+                    <li><a class="text-decoration-none" href="#">[[#{template.producto.extra.7}]]</a></li>
                 </ul>
             </div>
 
             <div class="col-md-4 pt-5">
-                <h2 class="h2 text-light border-bottom pb-3 border-light">Further Info</h2>
+                <h2 class="h2 text-light border-bottom pb-3 border-light">[[#{template.informacion}]]</h2>
                 <ul class="list-unstyled text-light footer-link-list">
-                    <li><a class="text-decoration-none" href="#">Home</a></li>
-                    <li><a class="text-decoration-none" href="#">About Us</a></li>
-                    <li><a class="text-decoration-none" href="#">Shop Locations</a></li>
+                    <li><a class="text-decoration-none" href="/">[[#{template.home}]]</a></li>
+                    <li><a class="text-decoration-none" href="#">[[#{template.info.dato.2}]]</a></li>
+                    <li><a class="text-decoration-none" href="#">[[#{template.info.dato.3}]]</a></li>
                     <li><a class="text-decoration-none" href="#">FAQs</a></li>
-                    <li><a class="text-decoration-none" href="#">Contact</a></li>
+                    <li><a class="text-decoration-none" href="#">[[#{template.info.dato.5}]]</a></li>
                 </ul>
             </div>
 
@@ -376,11 +373,11 @@
                 </ul>
             </div>
             <div class="col-auto">
-                <label class="sr-only" for="subscribeEmail">Email address</label>
+                <label class="sr-only" for="subscribeEmail">[[#{template.info.email}]]</label>
                 <div class="input-group mb-2">
                     <input class="form-control bg-dark border-light" id="subscribeEmail" placeholder="Email address"
                            type="text">
-                    <div class="input-group-text btn-success text-light">Join</div>
+                    <div class="input-group-text btn-success text-light">[[#{template.info.boton}]]</div>
                 </div>
             </div>
         </div>

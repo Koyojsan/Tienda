@@ -17,6 +17,7 @@ public class UserController {
     @Autowired
     private IUserDetailService userService;
 
+    //Mapeo de usuarios
     @GetMapping("/user")
     public String index(Model model) {
         var usuarios = userService.getUsuarios();

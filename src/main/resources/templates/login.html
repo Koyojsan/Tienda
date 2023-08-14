@@ -5,38 +5,39 @@
       ​​xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 
     <head th:insert="~{template.html :: head}"></head>
-    <body>
-        <div th:insert="~{template.html :: nav}"></div>
-        <div class="container my-5">
-            <div class="row align-items-center">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header bg-success"><h2>[[#{Iniciar Sesión}]]</h2></div>
-                        <div class="card-body">
-                            <form method="POST" th:action="@{/login}">
-                                <div class="form-group row my-3">
-                                    <label class="col-md-5 my-auto" for="username"><i class="fas fa-user-lock"></i>[[#{Username}]]:</label>
-                                    <div class="col-md-7 my-auto">
-                                        <input class="form-control" id="username" name="username" type="text"/></div>
-                                </div>
-                                <div class="form-group row my-3">
-                                    <label class="col-md-5 my-auto" for="password"><i class="fas fa-key"></i>[[#{Password}]]</label>
-                                    <div class="col-md-7 my-auto"><input class="form-control" id="password" name="password" type="password"/></div>
-                                </div>
-                                <div class="card-footer col text-center">
-                                    <button class="btn btn-success" type="submit">
-                                        <span class="btn"><i class="fas fa-sign-in-alt"></i>
-                                            [[#{Ingresar}]]</span></button>
-                                </div>
-                            </form>
+    <link th:href="@{/css/views/login.css}" rel="stylesheet">
+        <body>
+            <div th:insert="~{template.html :: nav}"></div>
+            <div class="container my-5">
+                <div class="row align-items-center">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header bg-success"><h2>[[#{Iniciar Sesión}]]</h2></div>
+                            <div class="card-body">
+                                <form method="POST" th:action="@{/login}">
+                                    <div class="form-group row my-3">
+                                        <label class="col-md-5 my-auto" for="username"><i class="fas fa-user-lock"></i>[[#{Username}]]:</label>
+                                        <div class="col-md-7 my-auto">
+                                            <input class="form-control" id="username" name="username" type="text"/></div>
+                                    </div>
+                                    <div class="form-group row my-3">
+                                        <label class="col-md-5 my-auto" for="password"><i class="fas fa-key"></i>[[#{Password}]]</label>
+                                        <div class="col-md-7 my-auto"><input class="form-control" id="password" name="password" type="password"/></div>
+                                    </div>
+                                    <div class="card-footer col text-center">
+                                        <button class="btn btn-success" type="submit">
+                                            <span class="btn"><i class="fas fa-sign-in-alt"></i>
+                                                [[#{Ingresar}]]</span></button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                    </div>
-                    <div th:if="${param.error != null}">
-                        <h3>[[#{Usuario incorrecto o no registrado}]]</h3>
+                        <div th:if="${param.error != null}">
+                            <h3>[[#{Usuario incorrecto o no registrado}]]</h3>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </body>
+        </body>
 </html>

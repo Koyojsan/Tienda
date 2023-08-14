@@ -13,6 +13,7 @@ public class IndexController {
         this.productService = productService;
     }
 
+    //Mapeo de index
     @GetMapping("/")
     public String index(Model model) {
         var productos = this.productService.getAll();

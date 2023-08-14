@@ -4,7 +4,6 @@ import Tienda.Tienda.entities.Product;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-//Mapea Producto (Entity)
 public interface IProductRepository extends JpaRepository <Product, Integer> {
     List<Product> findAllByPrecioBetween(int lowerPrice, int higherPrice);
     List<Product> findAllByPrecioGreaterThanEqual(int lowerPrice);

@@ -19,6 +19,7 @@ public class SignUpController {
     @Autowired
     private SignUpService loginService;
     
+    //Mapeo de registro
     @GetMapping("/registro")
     public String nuevo(Model model, Usuario usuario) {
         return "/registro";

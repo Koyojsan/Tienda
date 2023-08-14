@@ -22,8 +22,7 @@ import java.util.Locale;
 @Configuration //Decorador or tag
 public class ProjectConfig implements WebMvcConfigurer {
 
-    /* localeResolver se utiliza para crear una sesión de cambio de idioma*/
-    //Funciones que ejecuta springboot a la hora de configurarse    
+    /* localeResolver es para cambiar el idioma*/  
     @Bean
     public LocaleResolver localeResolver() {
         var slr = new SessionLocaleResolver();
@@ -40,7 +39,8 @@ public class ProjectConfig implements WebMvcConfigurer {
         lci.setParamName("lang");
         return lci;
     }
-
+    
+    // Interceptores añadidos
     @Override
     public void addInterceptors(InterceptorRegistry interceptorRegistry) {
         interceptorRegistry.addInterceptor(localeChangeInterceptor());
@@ -62,21 +62,36 @@ public class ProjectConfig implements WebMvcConfigurer {
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/admin").setViewName("admin");
         registry.addViewController("/product").setViewName("product");
+        registry.addViewController("/sign-up").setViewName("sign-up");
+        registry.addViewController("/reports").setViewName("reports");
     }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((request) -> request
-                .requestMatchers("/", "/index", "/errores/**", "/js/**", "/css/**", "/icons/**", "/img/**", "/webfonts/**", "/user")
+                .requestMatchers("/",
+                                 "/index",
+                                 "/errores/**", 
+                                 "/js/**", 
+                                 "/css/**", 
+                                 "/icons/**", 
+                                 "/img/**", 
+                                 "/webfonts/**", 
+                                 "/registro/**",
+                                 "/carrito/**")
                 .permitAll()
-                .requestMatchers("/product/**", "/category/**", "/api/**", "/admin/**")
+                .requestMatchers("/product/**", 
+                                 "/category/**", 
+                                 "/api/**", 
+                                 "/admin/**",
+                                 "/user/**")
                 .hasRole("ADMIN"))
                 .formLogin((form) -> form.loginPage("/login")
                 .permitAll()
                 .defaultSuccessUrl("/", true))
                 .logout(LogoutConfigurer::permitAll)
                 .csrf().disable().cors();
-//this line is important to allow ajax request from the js        
+        //Linea para los js
         return http.build();
     }
 

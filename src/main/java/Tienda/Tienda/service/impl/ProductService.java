@@ -1,6 +1,7 @@
 package Tienda.Tienda.service.impl;
 
 import Tienda.Tienda.db.IProductRepository;
+import Tienda.Tienda.entities.Item;
 import Tienda.Tienda.entities.Product;
 import Tienda.Tienda.service.IProductService;
 import org.springframework.stereotype.Service;
@@ -33,4 +34,10 @@ public class ProductService extends BaseService<Product, Integer> implements IPr
         return (List<Product>) this.productRepository.findAll();
     }
     //Obtener los productos?
+
+    @Override
+    public Product getProduct(Item item) {
+        //OBVIO ESTO NO SE HACE, ES POR AHORA
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

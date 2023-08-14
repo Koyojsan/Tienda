@@ -4,7 +4,6 @@ import Tienda.Tienda.db.IRolRepository;
 import Tienda.Tienda.db.IUserRepository;
 import Tienda.Tienda.entities.Rol;
 import Tienda.Tienda.entities.Usuario;
-import Tienda.Tienda.service.IUserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -16,15 +15,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import Tienda.Tienda.service.IUserDetailService;
+import org.springframework.data.repository.CrudRepository;
 
 @Service
-public class UserService implements UserDetailsService, IUserService {
+public class UserDetailService extends BaseService<Usuario, Integer> implements UserDetailsService, IUserDetailService {
 
     private final IUserRepository userRepository;
     private final HttpSession session;
     private final IRolRepository roleRepository;
 
-    public UserService(IUserRepository userRepository, HttpSession session, IRolRepository roleRepository) {
+    public UserDetailService(IUserRepository userRepository, HttpSession session, IRolRepository roleRepository) {
+        super(userRepository);
         this.userRepository = userRepository;
         this.session = session;
         this.roleRepository = roleRepository;

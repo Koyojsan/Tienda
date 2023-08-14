@@ -25,7 +25,7 @@ public class Rol  implements Serializable{
     private String nombre;
 
     @Column(name = "id_usuario")
-    private Long idUsuario;
+    private Integer idUsuario;
 
     public Long getIdRol() {
         return idRol;
@@ -43,11 +43,11 @@ public class Rol  implements Serializable{
         this.nombre = nombre;
     }
 
-    public Long getIdUsuario() {
+    public Integer getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(Long idUsuario) {
+    public void setIdUsuario(Integer idUsuario) {
         this.idUsuario = idUsuario;
     }
 }

@@ -1,0 +1,20 @@
+<!DOCTYPE html>​
+<html  th:attr="lang=${lang}" 
+       xmlns:th="http://www.thymeleaf.org"​
+       xmlns="http://www.w3.org/1999/xhtml"​
+       xmlns:sec="http://thymeleaf.org/extras/spring-security">​
+
+    <head th:insert="~{template.html :: head}"></head> 
+    <body>​
+        
+        <div th:insert="~{template.html :: nav}"></div>
+
+        <section th:replace="~{carrito/fragmentos :: listadoCarrito}"/>​​
+        
+        <div th:insert="~{template.html :: footer}"></div>
+        <div th:insert="~{template.html :: scripts}"></div>
+        
+    </body>​
+</html>​
+
+​

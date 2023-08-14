@@ -4,7 +4,7 @@ import Tienda.Tienda.entities.Usuario;
 import java.util.List;
 import org.springframework.security.core.userdetails.*;
 
-public interface IUserService {
+public interface IUserDetailService extends IBaseService<Usuario, Integer> {
   
     // Se obtiene un listado de usuarios en un List
     public List<Usuario> getUsuarios();
@@ -26,7 +26,7 @@ public interface IUserService {
     
     // Se inserta un nuevo usuario si el id del usuario esta vacío
     // Se actualiza un usuario si el id del usuario NO esta vacío
-    public void save(Usuario usuario,boolean crearRolUser);
+    public void save(Usuario usuario, boolean crearRolUser);
     
     // Se elimina el usuario que tiene el id pasado por parámetro
     public void delete(Usuario usuario);

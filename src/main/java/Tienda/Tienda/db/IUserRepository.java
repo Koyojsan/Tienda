@@ -4,7 +4,7 @@ import Tienda.Tienda.entities.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 
-public interface IUserRepository extends JpaRepository<Usuario, Long> {
+public interface IUserRepository extends JpaRepository<Usuario, Integer> {
     
     Usuario findByUsername(String Username);
        

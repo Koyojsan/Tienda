@@ -19,6 +19,9 @@ public class Product {
     private Integer existencias;
     private String ruta_imagen;
     private boolean activo;
+    
+    public Product(){
+    }
 
     public Category getCategory() {
         return category;
@@ -35,8 +38,6 @@ public class Product {
     public void setId(Integer id_producto) {
         this.id = id_producto;
     }
-
-
 
     public String getDescripcion() {
         return descripcion;

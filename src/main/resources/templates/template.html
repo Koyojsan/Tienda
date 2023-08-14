@@ -45,13 +45,10 @@
                         <a class="nav-link" href="/">[[#{template.home}]]</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link" th:href="|@{/}?lang=es|">[[#{lenguaje.es}]]</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="shop.html">Shop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" th:href="|@{/}?lang=en|">[[#{lenguaje.en}]]</a>
                     </li>
                     <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
                 <!-- En template añadir el tag sec:authorize, 
